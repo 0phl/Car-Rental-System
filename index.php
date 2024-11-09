@@ -15,16 +15,9 @@ $cars = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-    <nav class="navbar">
-        <div class="container">
-            <a href="index.php" class="logo">CarRental</a>
-            <div class="nav-links">
-                <a href="index.php">Home</a>
-                <a href="check-booking.php">Check Booking</a>
-                <a href="admin/login.php">Admin</a>
-            </div>
-        </div>
-    </nav>
+
+    <!-- Call the Navbar -->
+<?php require_once("admin/includes/navbar.php")?>
 
     <header class="hero">
         <div class="container">

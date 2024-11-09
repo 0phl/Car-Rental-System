@@ -1,4 +1,6 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 session_start();
 require_once '../config/database.php';
 
@@ -38,27 +40,34 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <title>Admin Login - CarRental</title>
     <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="stylesheet" href="css/admin.css">
+    <style>
+        body {
+            overflow: hidden; /* Hide the scrollbar */
+        }
+    </style>
 </head>
-<body class="admin-login">
-    <div class="login-container">
-        <div class="login-card">
-            <h2>Admin Login</h2>
-            <?php if ($error): ?>
-                <div class="error-message"><?php echo htmlspecialchars($error); ?></div>
-            <?php endif; ?>
-            <form method="POST" class="login-form">
-                <div class="form-group">
-                    <label for="username">Username</label>
-                    <input type="text" id="username" name="username" required>
-                </div>
-                <div class="form-group">
-                    <label for="password">Password</label>
-                    <input type="password" id="password" name="password" required>
-                </div>
-                <button type="submit" class="btn-submit">Login</button>
-            </form>
-            <div class="back-link">
-                <a href="../index.php">← Back to Website</a>
+<body>
+    <!-- Include the navbar -->
+    <?php require_once 'includes/navbar.php'; ?>
+
+    <div class="admin-login" style="display: flex; justify-content: center; align-items: center; height: 100vh;">
+        <div class="login-container">
+            <div class="login-card" style="margin-top: -100px;">
+                <h2>Admin Login</h2>
+                <?php if ($error): ?>
+                    <div class="error-message"><?php echo htmlspecialchars($error); ?></div>
+                <?php endif; ?>
+                <form method="POST" class="login-form">
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input type="text" id="username" name="username" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" required>
+                    </div>
+                    <button type="submit" class="btn-submit">Login</button>
+                </form>
             </div>
         </div>
     </div>

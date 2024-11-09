@@ -32,7 +32,7 @@ CREATE TABLE bookings (
     pickup_datetime DATETIME NOT NULL,
     return_datetime DATETIME NOT NULL,
     location VARCHAR(255) NOT NULL,
-    reference_no VARCHAR(10) NOT NULL,
+    reference_no VARCHAR(20) NOT NULL,
     status ENUM('pending', 'confirmed', 'completed', 'cancelled') DEFAULT 'pending',
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (car_id) REFERENCES cars(id)
