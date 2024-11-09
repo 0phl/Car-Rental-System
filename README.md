@@ -44,3 +44,5 @@ This will create a new admin account with:
 Username: admin
 Password: admin123
 Delete the create_admin.php file after using it
+
+- mag kaka error sa 'Book now' rent car pag may error add this query sa database "ALTER TABLE bookings MODIFY COLUMN reference_no VARCHAR(20) NOT NULL;"  punta lang sa MyPhpAdmin then click the car_rental_db then click SQL tapos paste the query. 
