@@ -71,5 +71,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </div>
         </div>
     </div>
+
+    <footer class="footer" style="margin-top: -160px;">
+        <div class="container">
+            <p>&copy; 2024 CarRental. All rights reserved.</p>
+        </div>
+    </footer>
+
 </body>
 </html> 
