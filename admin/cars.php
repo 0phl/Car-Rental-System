@@ -37,9 +37,24 @@ ob_start();
             <?php foreach($cars as $car): ?>
             <tr>
                 <td>
-                    <img src="<?php echo htmlspecialchars($car['image']); ?>" 
-                         alt="<?php echo htmlspecialchars($car['model']); ?>"
-                         class="car-thumbnail">
+                    <?php
+                    $imagePath = htmlspecialchars($car['image']);
+                    if (!empty($imagePath)) {
+                        if (file_exists('../' . $imagePath)) {
+                            echo '<img src="../' . $imagePath . '" 
+                                 alt="' . htmlspecialchars($car['model']) . '"
+                                 class="car-thumbnail">';
+                        } else {
+                            echo '<img src="../assets/images/no-image.png" 
+                                 alt="No image available" 
+                                 class="car-thumbnail">';
+                        }
+                    } else {
+                        echo '<img src="../assets/images/no-image.png" 
+                             alt="No image available" 
+                             class="car-thumbnail">';
+                    }
+                    ?>
                 </td>
                 <td>
                     <strong><?php echo htmlspecialchars($car['brand']); ?></strong><br>
@@ -52,12 +67,14 @@ ob_start();
                         <?php echo ucfirst($car['status']); ?>
                     </span>
                 </td>
-                <td class="actions">
-                    <a href="edit-car.php?id=<?php echo $car['id']; ?>" class="btn-edit">Edit</a>
-                    <form method="POST" class="delete-form" onsubmit="return confirm('Are you sure you want to delete this car?');">
-                        <input type="hidden" name="car_id" value="<?php echo $car['id']; ?>">
-                        <button type="submit" name="delete_car" class="btn-delete">Delete</button>
-                    </form>
+                <td class="actions-cell">
+                    <div class="action-buttons">
+                        <a href="edit-car.php?id=<?php echo $car['id']; ?>" class="btn-edit">Edit</a>
+                        <form method="POST" class="delete-form" onsubmit="return confirm('Are you sure you want to delete this car?');">
+                            <input type="hidden" name="car_id" value="<?php echo $car['id']; ?>">
+                            <button type="submit" name="delete_car" class="btn-delete">Delete</button>
+                        </form>
+                    </div>
                 </td>
             </tr>
             <?php endforeach; ?>
