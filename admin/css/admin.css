@@ -221,6 +221,16 @@
     color: #1e40af;
 }
 
+.status-badge.completed {
+    background: #00f549;
+    color: #033607;
+}
+.status-badge.cancelled {
+    background: #e90000;
+    color: #eff0ec;
+}
+
+
 /* Car Management */
 .car-thumbnail {
     width: 80px;
