@@ -103,11 +103,13 @@
 
 .data-table {
     background: var(--white);
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    border-radius: 12px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 
+                0 2px 4px -1px rgba(0, 0, 0, 0.06);
     overflow: hidden;
     margin-bottom: 2rem;
     width: 100%;
+    transition: box-shadow 0.3s ease;
 }
 
 .data-table table {
@@ -118,38 +120,65 @@
 
 .data-table th,
 .data-table td {
-    padding: 1rem;
+    padding: 1.2rem 4.5rem;
     text-align: left;
-    border-bottom: 1px solid var(--light-gray);
+    border-bottom: 1px solid rgba(229, 231, 235, 0.5);
     vertical-align: middle;
+    line-height: 1.5;
 }
 
 .data-table th {
-    background: #f8fafc;
-    font-weight: 600;
+    background: linear-gradient(to bottom, #f8fafc, #f1f5f9);
     color: var(--text-color);
     position: sticky;
     top: 0;
     z-index: 10;
     border-bottom: 2px solid #e5e7eb;
+    white-space: nowrap;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.025em;
 }
 
-.data-table tbody tr:hover {
-    background-color: #f9fafb;
-    transition: background-color 0.2s ease;
+.data-table tbody tr {
+    transition: all 0.2s ease-in-out;
 }
+
 
 .data-table tbody tr:last-child td {
     border-bottom: none;
 }
 
+/* Zebra striping for better readability */
+.data-table tbody tr:nth-child(even) {
+    background-color: rgba(249, 250, 251, 0.5);
+}
+
+/* First and last cells in each row */
+.data-table td:first-child,
+.data-table th:first-child {
+    padding-left: 1.5rem;
+}
+
+.data-table td:last-child,
+.data-table th:last-child {
+    padding-right: 9.5rem;
+}
+
 @media (max-width: 768px) {
     .data-table {
         overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        border-radius: 8px;
     }
     
     .data-table table {
         min-width: 800px;
+    }
+    
+    .data-table th,
+    .data-table td {
+        padding: 1.25rem 1rem;
     }
 }
 
@@ -241,7 +270,7 @@
 
 .actions-header {
     text-align: center;
-    min-width: 200px; /* Adjust as needed */
+    min-width: 200px; 
 }
 
 .actions-cell {
@@ -258,7 +287,7 @@
 .btn-edit, .btn-delete {
     padding: 6px 12px;
     width: 80px;
-    height: 35px; /* Makes both buttons the same width */
+    height: 35px; 
     text-align: center;
     border-radius: 5px;
     text-decoration: none;
@@ -268,7 +297,7 @@
 }
 
 .delete-form {
-    margin: 0; /* Remove any default form margins */
+    margin: 0;
 }
 
 .btn-edit {
