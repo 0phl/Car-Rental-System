@@ -6,7 +6,7 @@ if (isset($_POST['update_status'])) {
     $stmt = $pdo->prepare("UPDATE bookings SET status = ? WHERE id = ?");
     $stmt->execute([$_POST['status'], $_POST['booking_id']]);
     
-    // If booking is completed/cancelled, make car available again
+    // If booking is completed / cancelled, make car available again
     if (in_array($_POST['status'], ['completed', 'cancelled'])) {
         $stmt = $pdo->prepare("UPDATE cars SET status = 'available' WHERE id = (SELECT car_id FROM bookings WHERE id = ?)");
         $stmt->execute([$_POST['booking_id']]);
@@ -74,9 +74,22 @@ ob_start();
         
         <div class="filter-group">
             <label for="search">Search:</label>
-            <input type="text" name="search" id="search" value="<?php echo htmlspecialchars($search); ?>" 
-                   placeholder="Reference no, name or email">
-            <button type="submit" class="btn-search">Search</button>
+            <div class="search-input-group">
+                <input type="text" 
+                       name="search" 
+                       id="search" 
+                       value="<?php echo htmlspecialchars($search); ?>" 
+                       placeholder="Reference no, name or email">
+                <button type="submit" class="btn-search">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="filter-group">
+            <a href="generate-all-invoices.php" class="btn-generate-all" target="_blank">
+                <i class="fas fa-file-invoice"></i> Generate All Reports
+            </a>
         </div>
     </form>
 </div>
@@ -207,6 +220,10 @@ function viewDetails(bookingData) {
                 <span class="label">Status:</span>
                 <span class="value status-badge ${booking.status.toLowerCase()}">${booking.status}</span>
             </div>
+            <div class="detail-row">
+                <span class="label">Cost per Day:</span>
+                <span class="value">₱${booking.cost_per_day}</span>
+            </div>
         </div>
     `;
     
@@ -224,6 +241,16 @@ window.onclick = function(event) {
         modal.style.display = "none";
     }
 }
+
+let searchTimeout;
+document.getElementById('search').addEventListener('input', function(e) {
+    clearTimeout(searchTimeout);
+    if (this.value === '') {
+        searchTimeout = setTimeout(() => {
+            this.form.submit();
+        }, 300); // 300ms delay before submitting
+    }
+});
 </script>
 
 <?php

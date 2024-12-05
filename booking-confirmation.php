@@ -67,7 +67,7 @@ if (!$booking) {
                 </div>
             </div>
 
-            <p class="note">Please save your reference number to check your booking status later.</p>
+            <p class="note"><strong>Please save your reference number to check your booking status later.</strong></p>
             
             <div class="actions">
                 <a href="index.php" class="btn-secondary">Back to Home</a>

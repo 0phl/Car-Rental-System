@@ -28,7 +28,7 @@ ob_start();
                 <th>Image</th>
                 <th>Brand & Model</th>
                 <th>Seats</th>
-                <th>Cost/Day</th>
+                <th>Cost / Day</th>
                 <th>Status</th>
                 <th>Actions</th>
             </tr>
@@ -61,7 +61,7 @@ ob_start();
                     <?php echo htmlspecialchars($car['model']); ?>
                 </td>
                 <td><?php echo htmlspecialchars($car['seats']); ?></td>
-                <td>$<?php echo htmlspecialchars($car['cost_per_day']); ?></td>
+                <td>PHP <?php echo htmlspecialchars($car['cost_per_day']); ?></td>
                 <td>
                     <span class="status-badge <?php echo strtolower($car['status']); ?>">
                         <?php echo ucfirst($car['status']); ?>
@@ -85,4 +85,4 @@ ob_start();
 <?php
 $content = ob_get_clean();
 require_once 'includes/layout.php';
-?> 
+?>

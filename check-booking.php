@@ -38,8 +38,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' || isset($_GET['ref'])) {
         <div class="container">
             <div class="nav-content">
                 <a href="index.php" class="logo">
+                    DGMT CarRental
                     <i class="fas fa-car"></i>
-                    CarRental
                 </a>
                 <div class="nav-links">
                     <a href="index.php">Home</a>
@@ -129,11 +129,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' || isset($_GET['ref'])) {
                                 </span>
                             </div>
                         </div>
-                        
+                    
                         <div class="actions">
                             <a href="check-booking.php" class="btn-secondary">
                                 <i class="fas fa-search"></i>
                                 Check Another Booking
+                            </a>
+                            <a href="generate-invoice.php?ref=<?php echo urlencode($booking['reference_no']); ?>" 
+                               class="btn-primary" target="_blank">
+                                <i class="fas fa-file-invoice"></i>
+                                Generate Invoice
                             </a>
                         </div>
                     </div>
@@ -144,7 +149,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' || isset($_GET['ref'])) {
 
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2024 CarRental. All rights reserved.</p>
+            <p>&copy; 2024 DGMT CarRental. All rights reserved.</p>
         </div>
     </footer>
 </body>

@@ -20,7 +20,8 @@ CREATE TABLE cars (
     description TEXT NOT NULL,
     image VARCHAR(255) NOT NULL,
     status ENUM('available', 'booked') DEFAULT 'available',
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    type VARCHAR(50)
 );
 
 CREATE TABLE bookings (

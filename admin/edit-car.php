@@ -99,7 +99,7 @@ ob_start();
             </div>
 
             <div class="form-group">
-                <label for="cost_per_day">Cost per Day ($)</label>
+                <label for="cost_per_day">Cost per Day (Philippine Peso)</label>
                 <input type="number" id="cost_per_day" name="cost_per_day" 
                        value="<?php echo htmlspecialchars($car['cost_per_day']); ?>" 
                        required min="0" step="0.01">
