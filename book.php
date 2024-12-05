@@ -68,7 +68,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <img src="<?php echo htmlspecialchars($car['image']); ?>" alt="<?php echo htmlspecialchars($car['model']); ?>">
                 <div class="car-info">
                     <h2><?php echo htmlspecialchars($car['brand'] . ' ' . $car['model']); ?></h2>
-                    <p class="price">$<?php echo htmlspecialchars($car['cost_per_day']); ?> per day</p>
+                    <p class="price">PHP <?php echo htmlspecialchars($car['cost_per_day']); ?> per day</p>
                     <div class="features">
                         <p>Seats: <?php echo htmlspecialchars($car['seats']); ?></p>
                         <p>Transmission: <?php echo htmlspecialchars($car['transmission']); ?></p>
